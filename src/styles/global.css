@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+  }
+
+  body {
+    @apply bg-white max-w-screen-2xl mx-auto;
+  }
+  
+  @font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Regular.woff2?") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-SemiBold.woff2?") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter-Bold.woff2?") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+}

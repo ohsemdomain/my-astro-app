@@ -1,0 +1,35 @@
+---
+import Icon from "../Icon.astro";
+
+const today = new Date();
+---
+
+<footer>
+  &copy; {today.getFullYear()} All rights reserved. BOXCO.MY is a brand under Adco
+  Factory (202403193328).
+  <div class="social-links">
+    <a href="https://m.webtoo.ls/@astro" target="_blank">
+      <span class="sr-only">Get inspiration packaging on our Instagram</span>
+      <Icon name="ant-design:instagram-outlined" class="size-10 text-red-500" />
+    </a>
+    <a href="https://twitter.com/astrodotbuild" target="_blank">
+      <span class="sr-only">Follow Boxco on Facebook</span>
+      <Icon name="ant-design:facebook-outlined" class="size-10" />
+    </a>
+    <a href="https://github.com/withastro/astro" target="_blank">
+      <span class="sr-only">See our latest video on TikTok</span>
+      <Icon name="ant-design:tik-tok-filled" class="size-10" />
+    </a>
+  </div>
+</footer>
+<style>
+  footer {
+    @apply bg-black mt-8 py-4 px-4 rounded-lg text-gray-600 text-center;
+  }
+  .social-links {
+    @apply flex justify-center gap-4 mt-4;
+  }
+  .social-links a {
+    @apply text-gray-600 hover:text-gray-800 no-underline;
+  }
+</style>

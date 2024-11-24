@@ -1,50 +1,68 @@
 ---
+import "../styles/global.css";
+
 interface Props {
-	title: string;
+  title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title = "My Default Title",
+  description = "My default description for this awesome website",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- Font preloads -->
+    <link
+      rel="preload"
+      href="/fonts/Inter-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-SemiBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/Inter-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <script type="text/partytown" src="fancy-analytics.js"></script>
+    <title>{title}</title>
+  </head>
+
+  <body class="bg-white max-w-screen-2xl mx-auto custom-scrollbar">
+    <slot />
+  </body>
+
+  <style is:global>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgb(243 244 246 / 0%);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #d4d4d4;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #c7c7c7;
+    }
+  </style>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

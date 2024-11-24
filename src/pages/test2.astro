@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import MobileMenu from "../components/base/MobileMenu.astro";
+import Sidebar from "../components/base/Sidebar.astro";
+import LayoutWrapper from "../components/base/LayoutWrapper.astro";
+import Footer from "../components/base/Footer.astro";
+---
+
+<Layout
+  title="My Page Title"
+  description="This is a description of my awesome page"
+>
+  <LayoutWrapper>
+    <MobileMenu />
+    <Sidebar />
+
+    <main>
+      <div class="lg:ml-72 mt-16 lg:mt-0 py-6 pr-6">
+        <h1 class="text-3xl font-bold mb-4">Welcome to my business site</h1>
+        <div class="space-y-4">
+          <template x-for="paragraph in paragraphs" :key="paragraph">
+            <p class="text-gray-700" x-text="paragraph"></p>
+          </template>
+        </div>
+        <Footer />
+      </div>
+    </main>
+  </LayoutWrapper>
+</Layout>
